@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Clicker Game</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .shop {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Clicker Game</h1>
+        <h2>Points: {{ points }}</h2>
+        <button class="btn" @click="click">+{{ clickValue }} Points</button>
+        
+        <div class="shop">
+            <h3>Améliorations</h3>
+            <button class="btn" @click="buyUpgrade" :disabled="points < upgradeCost">
+                Améliorer (+{{ upgradeAmount }} par clic) - {{ upgradeCost }} Points
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    points: localStorage.getItem('points') ? parseInt(localStorage.getItem('points')) : 0,
+                    clickValue: localStorage.getItem('clickValue') ? parseInt(localStorage.getItem('clickValue')) : 1,
+                    upgradeCost: localStorage.getItem('upgradeCost') ? parseInt(localStorage.getItem('upgradeCost')) : 10,
+                    upgradeAmount: 1
+                };
+            },
+            methods: {
+                click() {
+                    this.points += this.clickValue;
+                    this.saveGame();
+                },
+                buyUpgrade() {
+                    if (this.points >= this.upgradeCost) {
+                        this.points -= this.upgradeCost;
+                        this.clickValue += this.upgradeAmount;
+                        this.? = Math.floor(this.upgradeAmount * 1.5);
+                        this.?;
+                    }
+                },
+                saveGame() {
+                    localStorage.setItem('points', this.points);
+                    localStorage.setItem('clickValue', this.clickValue);
+                    localStorage.setItem('upgradeCost', this.upgradeCost);
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

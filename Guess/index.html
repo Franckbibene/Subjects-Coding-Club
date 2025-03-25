@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Devinettes en Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 100px;
+            text-align: center;
+        }
+        .btn {
+            font-size: 16px;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .message {
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Jeu de Devinettes</h1>
+        <p>Devinez un nombre entre 1 et 100</p>
+        <input type="number" v-model.number="______" />
+        <button class="btn" @click="______">Vérifier</button>
+        <p class="message">{{ ______ }}</p>
+        <button class="btn" @click="______">Rejouer</button>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    secretNumber: Math.floor(Math.random() * 100) + 1,
+                    userGuess: null,
+                    message: ""
+                };
+            },
+            methods: {
+                checkGuess() {
+                    if (this.userGuess === ______) {
+                        this.message = "🎉 Bravo ! Vous avez trouvé le bon numéro !";
+                    } else if (this.userGuess > ______) {
+                        this.message = "📉 Trop haut ! Essayez encore.";
+                    } else {
+                        this.message = "📈 Trop bas ! Essayez encore.";
+                    }
+                },
+                resetGame() {
+                    this.secretNumber = Math.floor(Math.random() * 100) + 1;
+                    this.userGuess = null;
+                    this.message = "";
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>
+

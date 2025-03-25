@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pierre-Feuille-Ciseaux en Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .result {
+            font-size: 24px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Pierre-Feuille-Ciseaux</h1>
+        <p>Choisissez votre option :</p>
+        <button class="btn" @click="______">Pierre</button>
+        <button class="btn" @click="______">Feuille</button>
+        <button class="btn" @click="______">Ciseaux</button>
+
+        <div v-if="userChoice">
+            <p>Vous avez choisi : {{ userChoice }}</p>
+            <p>L'ordinateur a choisi : {{ computerChoice }}</p>
+            <p class="result">{{ resultMessage }}</p>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    userChoice: ______,
+                    computerChoice: ______,
+                    resultMessage: ______
+                };
+            },
+            methods: {
+                makeChoice(choice) {
+                    this.userChoice = choice;
+                    this.computerChoice = this.randomChoice();
+                    this.resultMessage = this.getResult();
+                },
+                randomChoice() {
+                    const choices = [______];
+                    return choices[Math.floor(Math.random() * choices.length)];
+                },
+                getResult() {
+                    if (this.userChoice === this.computerChoice) {
+                        return ______;
+                    }
+                    if (
+                        (this.userChoice === 'pierre' && this.computerChoice === 'ciseaux') ||
+                        (this.userChoice === 'feuille' && this.computerChoice === 'pierre') ||
+                        (this.userChoice === 'ciseaux' && this.computerChoice === 'feuille')
+                    ) {
+                        return ______;
+                    }
+                    return ______;
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>
