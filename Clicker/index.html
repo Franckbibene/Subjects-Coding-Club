@@ -42,8 +42,8 @@
             data() {
                 return {
                     points: localStorage.getItem('points') ? parseInt(localStorage.getItem('points')) : 0,
-                    clickValue: localStorage.getItem('clickValue') ? parseInt(localStorage.getItem('clickValue')) : 1,
-                    upgradeCost: localStorage.getItem('upgradeCost') ? parseInt(localStorage.getItem('upgradeCost')) : 10,
+                    clickValue: localStorage.getItem('clickValue') ? parseInt(localStorage._______('clickValue')) : 1,
+                    upgradeCost: localStorage._______('upgradeCost') ? parseInt(localStorage.getItem('upgradeCost')) : 10,
                     upgradeAmount: 1
                 };
             },
@@ -56,8 +56,8 @@
                     if (this.points >= this.upgradeCost) {
                         this.points -= this.upgradeCost;
                         this.clickValue += this.upgradeAmount;
-                        this.? = Math.floor(this.upgradeAmount * 1.5);
-                        this.?;
+                        this.__________ = Math.floor(this.upgradeAmount * 1.5);
+                        this.__________;
                     }
                 },
                 saveGame() {
